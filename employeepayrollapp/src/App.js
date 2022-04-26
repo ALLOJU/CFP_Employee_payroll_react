@@ -1,6 +1,9 @@
-import logo from './logo.jpg';
+
 import './App.css';
 import React from 'react';
+import Home from './Home';
+import About from './About';
+import {Switch,Route,NavLink, BrowserRouter} from 'react-router-dom';
 
 class App extends React.Component {
   url = 'https://www.bridgelabz.com/'
@@ -32,10 +35,11 @@ class App extends React.Component {
 
   render() {
     return (
+      <BrowserRouter>
+     
       <>
-        <html>
-          <body>
-            <div className="container">
+      
+            {/* <div className="container">
               <div className="main-container">
                 <div className="header">
                   <h1>Hello {this.state.userName} from Bridgelabz</h1>
@@ -63,13 +67,26 @@ class App extends React.Component {
                   <p>
                     To know about us , visit <a href="https://www.bridgelabz.com/">BridgeLabz</a>
                     to learn even more about out mission i.e. <strong>Employability to all</strong>
-                  </p>
-                </div>
+                  </p> */}
+                  <h1>
+             
+                <NavLink to='/home'>Home</NavLink>
+                <NavLink to='/about'>about</NavLink>
+               
+              
+              </h1>
+              <Switch>
+                <Route exact path='/home' component={Home}/>
+                <Route exact path='/about' component={About}/>
+                
+              </Switch>
+                {/* </>/</div>
               </div>
-            </div>
-          </body>
-        </html>
+            </div> */}
+            
+            
       </>
+       </BrowserRouter>
     );
   }
 }
